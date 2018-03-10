@@ -22,6 +22,7 @@ SSHD_SESSION_CLOSE  pam_unix\(sshd:session\): session closed for user %{USERNAME
 SSHD_SESSION_FAIL   pam_systemd\(sshd:session\): Failed to release session: (?<sshd.disconnect.status>Interrupted system call)
 SSHD_PAMAUTH        pam_unix\(sshd:auth\): authentication %{WORD:sshd.pam}; logname= uid=%{INT:sshd.pam.uid} euid=%{INT:sshd.pam.euid} tty=%{WORD:sshd.tty} ruser= rhost=%{IPORHOST:sshd.pam.rhost}  user=%{USER:sshd.pam.user}
 SSHD_SFTP	    subsystem request for sftp
+SSHD_UNKNOWN_USER   pam_unix(sshd:auth): check pass; user unknown
 
 # Probe
 SSHD_REFUSE_CONN    (?<sshd_result>refused) connect from %{DATA:sshd.client.hostname} \(%{IPORHOST:sshd.client.ip}\)
@@ -65,5 +66,5 @@ SSHD_NORMAL_LOG %{SSHD_SUCCESS}|%{SSHD_DISCONNECT}|%{SSHD_CONN_CLOSE}|%{SSHD_SES
 SSHD_PROBE_LOG  %{SSHD_REFUSE_CONN}|%{SSHD_TCPWRAP_FAIL1}|%{SSHD_TCPWRAP_FAIL2}|%{SSHD_TCPWRAP_FAIL3}|%{SSHD_TCPWRAP_FAIL4}|%{SSHD_TCPWRAP_FAIL5}|%{SSHD_FAIL}|%{SSHD_USER_FAIL}|%{SSHD_INVAL_USER}
 SSHD_PREAUTH    %{SSHD_DISC_PREAUTH}|%{SSHD_RECE_PREAUTH}|%{SSHD_MAXE_PREAUTH}|%{SSHD_DISR_PREAUTH}|%{SSHD_INVA_PREAUTH}|%{SSHD_REST_PREAUTH}|%{SSHD_FAIL_PREAUTH}|%{SSHD_CLOS_PREAUTH}|%{SSHD_FAI2_PREAUTH}|%{SSHD_BADL_PREAUTH}|%{SSHD_PAM_MULTI}|%{SSHD_PAM_AUTHFAIL}
 SSHD_CORRUPTED  %{SSHD_IDENT_FAIL}|%{SSHD_MAPB_FAIL}|%{SSHD_RMAP_FAIL}|%{SSHD_TOOMANY_AUTH}|%{SSHD_CORRUPT_MAC}|%{SSHD_PACKET_CORRUPT}|%{SSHD_BAD_VERSION}
-SSHD_LOG        %{SSHD_INIT}|%{SSHD_NORMAL_LOG}|%{SSHD_PROBE_LOG}|%{SSHD_CORRUPTED}|%{SSHD_TUNN}|%{SSHD_PREAUTH}
+SSHD_LOG        %{SSHD_INIT}|%{SSHD_NORMAL_LOG}|%{SSHD_PROBE_LOG}|%{SSHD_CORRUPTED}|%{SSHD_TUNN}|%{SSHD_PREAUTH}|%{SSHD_UNKNOWN_USER}
 
