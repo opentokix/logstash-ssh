@@ -47,7 +47,7 @@ SSHD_FAIL_PREAUTH   fatal: Unable to negotiate with %{IP:sshd.client.ip} port %{
 SSHD_FAI2_PREAUTH   fatal: %{GREEDYDATA:sshd.fatal.status}: Connection from %{IP:sshd.client.ip} port %{NUMBER:sshd.port}:\s*%{GREEDYDATA:sshd.disconnect.status}? \[%{GREEDYDATA:sshd.privsep}\]
 SSHD_BADL_PREAUTH   Bad packet length %{NUMBER:sshd.packet.length}. \[%{GREEDYDATA:sshd.privsep}\]
 SSHD_PAM_MULTI      PAM %{INT:sshd.pam.retries} more authentication failures; logname= uid=%{INT:sshd.pam.uid} euid=%{INT:sshd.pam.euid} tty=%{WORD:sshd.pam.tty} ruser= rhost=%{IPORHOST:sshd.pam.rhost}  user=%{USER:sshd.pam.user}
-SSHD_PAM_AUTHFAIL   pam_unix\(sshd:auth\): authentication failure; logname%{NOTSPACE}%{SPACE}uid=%{INTsshd.pam.uid}%{SPACE}euid=%{INT:sshd.pam.euid} tty=%{WORD:sshd.pam.tty} ruser=%{SPACE}rhost=%{IPORHOST:sshd.pam.rhost}
+SSHD_PAM_AUTHFAIL   pam_unix\(sshd:auth\): authentication failure; logname%{NOTSPACE}%{SPACE}uid=%{INT:sshd.pam.uid}%{SPACE}euid=%{INT:sshd.pam.euid} tty=%{WORD:sshd.pam.tty} ruser=%{SPACE}rhost=%{IPORHOST:sshd.pam.rhost}
 
 
 # Corrupted
