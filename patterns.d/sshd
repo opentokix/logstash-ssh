@@ -20,7 +20,7 @@ SSHD_CONN_CLOSE     Connection closed by %{IP:sshd.client.ip}$
 SSHD_SESSION_OPEN   pam_unix\(sshd:session\): session opened for user %{USERNAME:sshd.user} by \(uid=\d+\)
 SSHD_SESSION_CLOSE  pam_unix\(sshd:session\): session closed for user %{USERNAME:sshd.user}
 SSHD_SESSION_FAIL   pam_systemd\(sshd:session\): Failed to release session: (?<sshd.disconnect.status>Interrupted system call)
-SSHD_PAMAUTH        pam_unix\(sshd:auth\): authentication %{WORD:sshd.pam}; logname= uid=%{INT:sshd.pam.uid} euid=%{INT:sshd.pam.euid} tty=%{WORD:sshd.tty} ruser= rhost=%{IPORHOST:sshd.pam.rhost}  user=%{USER:sshd.pam.user}
+SSHD_PAMAUTH        pam_unix\(sshd:auth\): authentication %{WORD:sshd.pam.auth}; logname= uid=%{INT:sshd.pam.uid} euid=%{INT:sshd.pam.euid} tty=%{WORD:sshd.tty} ruser= rhost=%{IPORHOST:sshd.pam.rhost}  user=%{USER:sshd.pam.user}
 SSHD_SFTP	    subsystem request for sftp
 SSHD_UNKNOWN_USER   pam_unix(sshd:auth): check pass; user unknown
 
