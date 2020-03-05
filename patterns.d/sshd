@@ -13,7 +13,7 @@ SSHD_TUNN_TIMEOUT   Timeout, client not responding.
 
 # Normal
 SSHD_SUCCESS_OLD        (?<sshd.result>Accepted) %{WORD:sshd.auth.type} for %{USERNAME:sshd.user} from %{IP:sshd.client.ip} port %{NUMBER:sshd.port} %{WORD:sshd.protocol}: %{GREEDYDATA:sshd.cipher}
-SSHD_SUCCESS        %{DATA:sshd.event} %{DATA:sshd.auth.type} for (invalid user )?%{DATA:sshd.user} from %{IPORHOST:sshd.client.ip} port %{NUMBER:sshd.port} ssh2(: %{WORD:sshd.cipher}%{SPACE}%{GREEDYDATA:sshd.key})?
+SSHD_SUCCESS        %{DATA:sshd.event} %{DATA:sshd.auth.type} for (invalid user )?%{DATA:sshd.user} from %{IPORHOST:sshd.client.ip} port %{NUMBER:sshd.port} ssh2(: %{WORD:sshd.cipher}%{SPACE}%{WORD:sshd.keyenc}:%{GREEDYDATA:ssh.key})?
 SSHD_DISCONNECT_OLD     Received disconnect from %{IP:sshd.client.ip} port %{NUMBER:sshd.port}:%{NUMBER:sshd.disconnect.code}: (?<sshd.disconnect.status>disconnected by user)
 SSHD_DISCONNECT     Received disconnect from %{IPORHOST:sshd.client.ip}%{GREEDYDATA}
 SSHD_CONN_CLOSE     Connection closed by %{IP:sshd.client.ip}$
